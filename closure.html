@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+function counter(){
+	let x = 3;
+	return () =>{
+		x+=3
+		console.log(x)
+	}
+}
+	let first = counter();
+	first();
+	first();
+	first();
+	
+	function user(){
+		let user = {
+			name:'Vova',
+			surname:'Yarosh',
+			age:23,
+			parole:'',
+			car:false
+		}
+		return
+		{
+			getNameSurname: ()=>{
+				return user.name + '' + user.surname
+			},
+			getParol: (newParol) =>{
+				newParol = prompt('password?');
+				user.parol = newParol;
+			},
+			getParol2: () =>{
+				return user.parol
+			},
+			celebrate:() =>{
+				user.age++
+			},
+			buyCar: (car) =>{
+				user.car = car
+			},
+			getCar: () =>{
+		console.log(user.car)
+			},
+			checkPassword:
+			(passwordCheck) =>{
+				if(user.parol !== passwordCheck){
+					throw new Error('wrong password')
+				}
+				console.log('___LOGGED___')
+			},
+			changePassword: (newPassword, oldPassword) =>{
+				if(user.parol !== oldPassword)
+			
+			user.parol = newPassword;
+			}
+		}
+	}
+	
+	let vova = user();
+	vova.getParol();
+	console.log(vova.getParol2());
+	vova.buyCar({model:'Volvo', year: 2008});
+	vova.checkPassword('1234');
+	
+	console.log(vova.getNameSurname)
+	
+</script>
+	
+</body>
+</html>

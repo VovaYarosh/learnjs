@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	
+
+   function type(string, length) {
+        if(length < string.length+1) {
+			console.clear()
+            console.log(string.slice(0, length));
+            setTimeout(() => {
+				type(string, length+1)}, 500)
+        }
+    }
+	
+    type("я хочу сказати тобі шо ти підар...", 1);
+
+	</script>
+	
+</body>
+</html>

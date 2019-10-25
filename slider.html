@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <style>
+    div{
+      display: none;
+    }
+    img{
+      width:320px;
+      height: 320px;
+    }
+  </style>
+</head>
+<body>
+  <button id="left">left</button>
+	<div>
+    <img src="https://www.w3schools.com/w3css/img_lights.jpg"></div>
+  <div>
+    <img src=
+    "http://hq-wallpapers.ru/wallpapers/8/hq-wallpapers_ru_nature_35955_1920x1200.jpg"></div>
+  <div>
+    <img src=
+    "https://www.belightsoft.com/products/imagetricks/img/intro-video-poster@2x.jpg"></div>
+    <button id="right">right</button>
+    <script>
+        let divky = document.getElementsByTagName('div');
+        let left = document.getElementById('left')
+        let right = document.getElementById('right');
+
+        let showenDiv = 0;
+
+        divky[showenDiv].style.display = 'inline-block'
+
+        left.onclick = () =>{
+          
+          divky[showenDiv].style.display = 'none'
+          showenDiv--
+
+          if(showenDiv < 0){
+             showenDiv = divky.length-1
+          }
+
+          divky[showenDiv].style.display = 'inline-block' 
+          clearInterval(int)
+        }
+
+        right.onclick = () =>{
+
+          divky[showenDiv].style.display = 'none'
+          showenDiv++;
+
+          if(showenDiv > divky.length-1){
+             showenDiv = 0
+          }
+
+          divky[showenDiv].style.display = 'inline-block'
+          clearInterval(int)
+        }
+
+       
+       let int =  setInterval(()=>{
+              divky[showenDiv].style.display = 'none'
+          showenDiv++;
+
+          if(showenDiv > divky.length-1){
+             showenDiv = 0
+          }
+
+          divky[showenDiv].style.display = 'inline-block'
+          },2000)
+        
+
+        
+    </script> 
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	//каунтер на рекурсії
+//const log = (result) => console.log(result)
+//const CountDown = (val,fn) =>{
+//  fn(val)
+//  return (val>0) ? CountDown(val-1, fn) : val
+//}
+//CountDown(10, log)
+	
+	/////////////////////
+	
+	
+	const factorial = (n) =>{
+  if(n=== 1){
+    return 1
+  }else{
+    return n* factorial(n-1)
+  }
+}
+//кількість комбінацій(!)
+  console.log(factorial(4))
+  //як діє
+  factorial(4)
+  4 * factorial(3)
+  4 * 3 *factorial(2)
+  4 * 3 * 2 * factorial(1)
+  4 * 3 * 2 * 1
+  4 * 3 * 2 
+  24
+////////////////////
+	
+//const arr = [1,213,3,5,7,11,22,81];
+//
+//const qsort = (arr) =>{
+//  if(arr.length < 2){
+//  return arr;
+//} 
+//  const pivot = 
+//  arr[Math.floor(Math.random()*arr.length)];
+//  const less = arr.filter(value => value < pivot);
+//   const greater = arr.filter(value => value > pivot)
+//  return [...qsort(less), pivot, ...qsort(greater)];
+//}
+//console.log(qsort(arr))
+////[1,3,5,7,11,22,81,213]
+//	////////////////////////
+//	const arr = [1,1,2,3,10,7,4,3,4]
+//const bubble = arr => {
+//  const length = arr.length;
+//  for (let i = length; i > 0; i--){
+//    for(let z = 0;z < i-1;z++){
+//      if(arr[z] > arr[z+1]){
+//        const tmp = arr[z]
+//        arr[z] = arr[z + 1];
+//        arr[z+1] = tmp
+//      }
+//    }
+//  }
+//  return arr;
+//}
+//
+//console.log(bubble(arr))
+//// [1,1,2,3,3,4,4,7,10]
+
+	
+	
+	
+	
+
+	</script>
+	
+</body>
+</html>

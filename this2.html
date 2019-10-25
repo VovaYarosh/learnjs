@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p>Lorem ipsum dolor.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, pariatur.</p>
+	<p>Lorem ipsum.</p>
+	<p>Lorem ipsum dolor sit amet, consesctetur.</p>
+<script>
+//	console.log('in a window')
+//	console.log(this)
+//	function abc(){
+//		console.log('in a function');
+//		console.log(this.style);
+//		let arr = ['red','blue','grey','purple','yellow','pink'];
+//			arr[Math.ceil(Math.random()*arr.length)];
+//		this.style.background = arr[Math.ceil(Math.random()*arr.length)];
+//	}
+//	
+//	let p = document.querySelectorAll('p');
+//	p.forEach(function(element){
+//		element.onclick = abc;
+//	})
+	
+//	let greet = function(){
+//		return 'hi! My name is ' + this.name;
+//	}
+//	
+//	let person = {
+//		name: 'John',
+//		greet: greet
+//	}
+//	
+//	let anotherPerson = {
+//		name: 'nick',
+//	}
+//	
+//	console.log(person.greet())
+	
+	let passport = function()
+	{
+		let ages =  2019 - this.dateOfBirth
+		return "name: " + this.name +
+			" , surname: " + this.surname +
+			" , ages: " + ages;
+	}
+	
+	var Diego = {
+		name:'Pablo',
+		surname: 'Escobar',
+		dateOfBirth: 1950,
+		passport: passport,
+	}
+	
+	var Mikki = {
+		name:'El',
+		surname: 'Chapo',
+		dateOfBirth: 1952,
+		passport: passport,
+	}
+	
+	
+	
+	console.log(Diego.passport())
+	console.log(Mikki.passport())
+	</script>
+</body>
+</html>

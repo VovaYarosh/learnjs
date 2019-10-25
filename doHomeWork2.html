@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	 function doHomeWork(student,subject, persents, status, isFinished){
+      console.log(student + ' is passed ' + subject + " at " + status(persents) + " its " + isFinished(persents));
+    }
+
+    function status(persents)
+    {
+      return persents;
+    }
+    function gtPersents(persents){
+        persents = Math.ceil(Math.random()*100)
+        return persents
+    }
+
+    function statusCheackerUA(persents){
+      if(persents >= 90 && persents <= 100)
+      {
+        return "'Youre fuckin genius'";
+      }
+      else if(persents >= 70 && persents <= 89){
+        return "awesome";
+      }else if(persents >= 60 && persents <= 69){
+        return "good";
+      }else if(persents >= 50 && persents <= 59){
+        return "not bad";
+      }else if(persents >= 40 && persents <= 49){
+        return " its not good";
+      }else if(persents >= 20 && persents <= 39){
+        return "how can u b so dull?";
+      }else{
+        return "u r loontick";
+      }
+    }    
+
+
+   let gt = function getSubject(subject){
+      let  arrOfSubjects = ['math','chemistry','physics','literature','nature']
+        subject = arrOfSubjects[Math.ceil(Math.random()*arrOfSubjects.length-1)]
+        return subject
+    }
+
+    let gtSt = function getSubject(student){
+      let  arrSt = ['Vova','Vasia','Rostick','Misha','Olia Melnyk']
+        student = arrSt[Math.ceil(Math.random()*arrSt.length-1)]
+        return student
+    }
+    
+
+    doHomeWork(gtSt(),gt(),gtPersents() ,status, statusCheackerUA);
+
+</script>
+	
+</body>
+</html>

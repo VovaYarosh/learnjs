@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+let n = 5;
+let m = 5;
+let seatsArr = new Array();
+let swappedSeatsArr = new Array();
+
+for (var i = 0; i < n; i++) {
+  seatsArr[i] = new Array();
+  swappedSeatsArr[i] = new Array();
+}
+
+for (var i = 0; i < n; i++) {
+  for (var j = 0; j < m; j++) {
+    seatsArr[j][i] = j*m+i+1;
+    swappedSeatsArr[i][j] = j*m+i+1;
+  }
+}
+
+let result = []
+for (let i = 0; i < n; i++){
+  for(let j = 0;j < m; j++){
+    if(seatsArr[i][j] === swappedSeatsArr[i][j]){
+      result.push(seatsArr[i][j])
+    }
+  }
+}
+
+console.log(`кількість незмінених місць = ${result.length}
+це місця: ${result}`)
+</script>
+	
+</body>
+</html>

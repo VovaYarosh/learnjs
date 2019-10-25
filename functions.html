@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id='b1'>summa</button>
+<p id='out'></p>
+<script>
+	function summa(a,b){
+		let c = 50;
+		a = a || 10;
+		b = b || 20;
+		document.write(a+b);
+	}
+	document.getElementById('b1').onclick = function(){
+		summa(12,6)
+	}
+	//////////////////
+	
+	let t = 0;
+	console.log(showTemp(t));
+	function showTemp(t){
+		let out;
+		if(t>0) out = 'over zero';
+		else if(t<0) out = 'below zero';
+		else out = 'zero';
+		return out
+	}
+	///////////////////
+	
+	function greet(name){
+		return 'hello ' + name;
+	}
+	console.log(greet('Vova'));
+	///////////////////
+	
+	var func = function(callback){
+		var name = 'Vova';
+		callback(name)
+	}
+	
+	func(function(n){
+		 console.log('hello, my name is ' + n)
+		 })
+	////////////////////////
+	var func2 = function(){
+		return function(){
+			console.log('hi')
+		}
+	}
+	
+	func2()()
+	//////////////////////
+	let greeting = (function(name){
+		return 'who is writting the code? - ' + name
+	}('Vova'))
+	console.log(greeting)
+	
+/////////////////////
+	function first(y){
+		console.log();
+		y()	
+	}
+	
+	function second(a,b){
+		console.log(a*b);
+	}
+	first(function(){
+		second(5,7)
+	});
+	
+	//////////////
+	var goods = {
+		'2988' :{
+			name:'banana',
+			cost:'9 hrn',
+			img: 'https://cdn4.iconfinder.com/data/icons/fruit-4/842/banana-128.png'
+		},
+		'2989' :{
+			name:'tomato',
+			cost:'5 hrn',
+			img:'https://cdn4.iconfinder.com/data/icons/unigrid-phantom-fruits-vegetables/60/010_028_tomato_vegetable_berry_food_2-128.png'
+		}
+	};
+	
+	var out = '';
+	for(var key in goods){
+		out +='name: ' + goods[key].name + '<br>';
+		out +='cost: ' + goods[key].cost + '<br>';
+		out +='<img src="' + goods[key].img +'">' 
+	}
+	document.getElementById('out').innerHTML = out;
+	///////////////////////
+	let percent = (number,total) => {
+		return number* 100/total;
+	}
+	let text = 'how much august is gone already? '
+	let number = Math.ceil(percent(26,31));
+	console.log(text + number + "%");
+	
+	var f = function factorial(n){
+		return n ? n * factorial(n-1) : 1
+	}
+	
+	var g= f;
+	console.log(g(5))
+	</script>
+	
+</body>
+</html>

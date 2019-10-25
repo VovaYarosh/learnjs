@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>Lorem ipsum dolor.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, pariatur.</p>
+	<p>Lorem ipsum.</p>
+	<p>Lorem ipsum dolor sit amet, consesctetur.</p>
+<script> 
+	console.log('просто в програмі');
+	console.log(this);
+	
+	function abc(){
+		console.log('просто в function');
+		console.log(this);
+		console.log(7*3/2);
+		let arr = ['red','blue','grey','purple','yellow','pink'];
+		
+		
+		this.style.background = arr[Math.ceil(Math.random()*arr.length )];
+		
+	}
+	
+//	document.querySelector('p').onclick = abc;
+	
+	let p = document.querySelectorAll('p');
+	p.forEach(function(element){
+		element.onclick = abc;
+	})
+	/////////2video
+	
+//	var greet = function(){
+//		return"hi! My name is " + this.name;
+//	}
+//	
+//	var person = {
+//		name: 'John',
+//		greet: greet
+//	}
+//	
+//	var anotherPerson = {
+//		name: 'Nick',
+//		greet: greet
+//	}
+//	
+//	console.log(person.greet());
+//	console.log(anotherPerson.greet());
+	/////dgf
+	
+	var greet = function(greeting){
+		return greeting + "! My name is "  + this.name;
+	}
+	
+	var person = {
+		name: 'John',
+		greet: greet
+	}
+	
+	var anotherPerson = {
+		name: 'Nick',
+		greet: greet
+	}
+	
+	console.log(person.greet());
+	console.log(anotherPerson.greet());
+	console.log(anotherPerson.greet.call(person, 'bonjour'));
+	
+	console.log(anotherPerson.greet.call(anotherPerson, 'bonjour'));
+	
+	var bound = greet.bind(anotherPerson)
+	
+	console.log(bound('hello there'))
+	
+	//////////////video3
+	
+	
+	
+	
+	
+	
+	</script>
+</body>
+</html>

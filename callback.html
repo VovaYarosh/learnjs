@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+// function some(arg1,arg2, callback){
+//   var num = Math.ceil(Math.random()*(arg2-arg1)+ arg1);
+//   callback(num);
+// }
+
+// some(777,999,function(num){
+//   console.log(num)
+// });
+// const names = ['denis','ivan','olga','maks'];
+
+// function mapArray(arr, fn){
+//   const res = [];
+//   for (let i = 0; i < arr.length; i++){
+//     res.push(fn(arr[i]));
+//   }
+//   return res;
+// }
+
+// function nameLength(el){
+//   console.log(el);
+//   return el.length;
+// }
+
+// function up(el){
+//   return el.toUpperCase();
+//   console.log(el)
+// }
+
+// const result = mapArray(names,nameLength)
+// const result2 = mapArray(names,up)
+
+// console.log(result2)
+
+// function greeting(firstName){
+//   return function (lastname){
+//     return `hello, ${firstName} ${lastname}`
+//   }
+// }
+
+// const fullname = greeting('Vova')('Yarosh')
+// console.log(fullname) teach
+
+// function question(job){
+//   const jobDict = {
+//     developer: 'what javascript is?',
+//     teacher: 'what lesson do u teach'
+//   }
+//   return function(name){
+//     return `${name}, ${jobDict[job]}?`
+//   };
+// }
+
+// var quest = question('developer');
+// console.log(quest('vova'))
+
+function first(y){
+  console.log(1)
+  y()
+}
+
+function second(a,b){
+  console.log(a*b)
+}
+
+first(function(){
+  second(5,7)
+})
+	</script>
+	
+</body>
+</html>

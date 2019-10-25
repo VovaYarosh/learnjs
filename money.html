@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script>
+	function userCard(number){
+       let options = {
+           balance: 100,
+           transactionLimit: 100,
+           historyLogs:[],
+           key:number,
+       };
+       return {
+           getCardOptions: function (){
+               console.log(options)
+           },
+           putCredits:function (invest) {
+               options.balance = options.balance + invest;
+               let historyObj = {
+                   date: new Date(),
+                   operationType: 'put credit',
+                   credits: invest
+               }
+               options.historyLogs.push(historyObj)
+
+           },
+           takeCredits:function (waste) {
+               options.balance = options.balance - waste
+			   let historyObj = {
+                   date: new Date(),
+                   operationType: 'take credit',
+                   credits: '-' + waste
+               }
+               options.historyLogs.push(historyObj)
+           },
+           setTransactionLimit: (givingMoney) =>{
+               if(options.transactionLimit < givingMoney && options.balance < givingMoney)
+            console.error('недостатньо коштів')
+			   let historyObj = {
+                   date: new Date(),
+                   operationType: 'transaction limit change',
+                   credits: givingMoney
+               }
+               options.historyLogs.push(historyObj)
+           },
+           transferCredits: (x,card1) =>{
+              options.balance = options.balance - (x+(x/100*0,5));
+               card1.putCredits(x);
+           }
+		   }
+       }
+   const card3 = userCard(3);
+   console.log(card3);
+   card3.getCardOptions()
+    card3.putCredits(150)
+   card3.getCardOptions()
+    card3.takeCredits(100)
+   card3.getCardOptions()
+   card3.setTransactionLimit(5000)
+    const card1 = userCard(1)
+   card3.transferCredits(50,card1)
+   card3.getCardOptions()
+	</script>
+	
+</body>
+</html>

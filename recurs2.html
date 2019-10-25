@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+	let arr = [1,{name: 'Viktor',car: false, 
+student:['olga','dima']},6,[56,99],1]
+let i = 0;
+
+let newArr =[]
+function recurs() {
+    if(i < arr.length){
+       if (typeof arr[i] === 'object') {
+              arr[i] = Object.values(arr[i])
+               newArr.push(arr[i])
+               newArr = newArr.flat(2)
+                // console.log(newArr)
+            }
+    if (Array.isArray(arr[i]) === false) {
+                newArr.push(arr[i]);
+                // console.log(newArr)
+
+            }
+       i++
+       recurs()
+    }
+    
+            
+}
+recurs()
+
+console.log(newArr)
+	
+	let j = 0;
+function recurs2(){
+  if(j < newArr.length){
+    console.log(newArr[j])
+    j++
+    recurs2()
+  } 
+}
+recurs2()
+	
+	
+	</script>
+	
+</body>
+</html>

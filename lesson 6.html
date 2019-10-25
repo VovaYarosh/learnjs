@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	//closures
+	//arrow functions
+	//JSON
+	//callback
+	//event loop
+	//Recursion
+function counter(){
+	let x = 3;
+	return () =>{
+		x+=3
+		console.log(x)
+	}
+}	
+	let first = counter();
+	
+	first();
+	first();
+	first();
+	first();
+	
+	function user(){
+		let user = {
+			name:'Vova',
+			surname:'Yarosh',
+			age: 23,
+			parol:'',
+			car: false
+		}
+	return{
+		getNameSurname: ()=>{
+				return 'Особа:' + user.name + ' ' + user.surname + ' ' + 'вік:' + ' ' + user.age + ' ' + 'машина:' + user.car.model + ' ' + user.car.year
+			},
+		getParol: (newParol) =>{
+			newParol = prompt('password?');
+			user.parol = newParol;
+			},
+		getParol2: () =>{
+			return user.parol
+			},
+		celebrate:() =>{
+		user.age++
+	},
+		buyCar: (car) =>{
+			user.car = car;
+		},
+		getCar: () =>{
+			console.log(user.car)
+		},
+			checkPassword: (passwordCheck) =>{
+				if(user.parol !== passwordCheck){
+					throw new Error('wrong password')
+				}
+				console.log('___LOGGED____')
+			},
+				changePassword: (newPassword,oldPassword) => {
+				if(user.parol !== oldPassword){
+					throw new Error('wrong password')
+				}
+				user.password = newPassword;
+			}
+	}
+	}
+	let vova = user();
+			vova.getParol();
+			console.log(vova.getParol2());
+	vova.buyCar({model:'Volvo', year: 2008});
+	vova.getCar();
+	vova.checkPassword('1234');
+	
+	vova.celebrate();
+	vova.celebrate();
+	vova.celebrate();
+	
+	console.log(vova.getNameSurname())
+	
+	let arr = [1,2,37,9,3,15,40,4];
+	let arr2 = arr.sort((a,b) =>{ return a-b})
+	console.log(arr);
+	</script>
+	
+</body>
+</html>

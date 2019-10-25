@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	let arr = [{name: 'a',age:19,id:1
+},{name: 'b',age:20
+},{name: 'c',age:21
+},{name: 'd',age:22,id:2
+},{name: 'd',age:23
+},{name: 'e',age:24,id:3
+},{name: 'f',age:25
+},]
+
+
+Array.prototype.idSelector = function(field){
+   let arr2 = this.filter(filter => 
+filter[field])
+   console.log(arr2)
+}
+
+arr.idSelector('id')
+
+Array.prototype.foreach = function
+(cb){
+  let i;
+  let length = this.length;
+  for(i = 0; i < length;i++){
+    cb(this[i])
+  }
+
+}
+
+// arr.foreach((num)=>{
+//   console.log(num)
+// })
+
+Array.prototype.maP = 
+function(cb){
+  let i;
+  let length = this.length;
+  arrray = [];
+  for (i = 0; i < length; i++){
+     array.push(cb(this[i]))
+  }
+  return array
+}
+
+
+// let arr2 = arr.maP( num => num.age/2)
+// console.log(arr2)
+
+Array.prototype.Filter = 
+function(cb){
+let i;
+let length = this.length;
+array = [];
+for(i = 0;i <length;i++){
+if(cb(this[i])){
+  array.push(this[i])
+}
+}
+return array
+}
+
+// let arr3 = arr.Filter( value => 
+// value.age >22)
+// console.log(arr3)
+</script>
+	
+</body>
+</html>

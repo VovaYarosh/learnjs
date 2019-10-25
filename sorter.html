@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	class User{
+    constructor(name,surname,age,sex,weight,height,profession){
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.sex = sex;
+        this.weight = weight + 'kg';
+        this.height = height + 'cm';
+        this.profession = profession;
+    }
+    toString(){
+        console.log(this)
+    }
+}
+
+let user1 = new User(
+    'Vova','Yarosh',24,'male',65,180,'developer')
+let user2 = new User(
+    'Ivan','Gonchar',25,'male',62,170,'loader')
+let user3 = new User(
+    'Solomia','Didukh',22,'female',47,174,'hr')
+let user4 = new User(
+    'Vika','Sviata',27,'female',50,171,'some worker')
+let user5 = new User(
+    'Yura','Parker',21,'male',70,173,'priest')
+let user6 = new User(
+    'Dima','Porter',29,'male',71,188,'driver')
+let user7 = new User(
+    'Stas','Johnson',23,'male',80,182,'dj')
+
+
+
+let  arr = [];
+arr.push(user1,user2,user3,user4,user5,user6,user7)
+
+function sorter(arr = [],field,direct){
+ let arrOfValues = arr.map(user => user)
+  if(direct.toUpperCase() === 'DESC'){
+arrOfValues = arrOfValues.sort((a,b)=>{
+      let users1 = a[field];
+      let users2 = b[field];
+      if(users2>users1) return -1
+      if(users2<users1) return 1
+      if(field ==='sex'){
+        if(b.name>a.name) return -1
+        if(b.name<a.name) return 1
+      }
+})  
+  }else{
+    arrOfValues = arrOfValues.sort((a,b)=>{
+      let users1 = a[field];
+      let users2 = b[field];
+      if(users2>users1) return 1
+      if(users2<users1) return -1
+      if(field ==='sex'){
+        if(b.name>a.name) return 1
+        if(b.name<a.name) return -1
+      }
+})  
+  }
+  return arrOfValues
+}
+
+let sorter1 = sorter(arr,'name','DESC')
+console.log(sorter1)
+	
+	</script>
+	
+</body>
+</html>

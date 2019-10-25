@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+	  <title>hst</title>
+	  <style>
+		  .textarea-field button {
+  display: none;
+}
+.textarea-field .active {
+  display: block;
+}
+	  
+	  </style>
+  </head>
+  <body>
+    <div class="textarea-field">
+      <textarea></textarea>
+      <button id="prev">-</button>
+      <button id="next">+</button>
+    </div>
+    <script>
+	  
+var textarea = document.querySelector('.textarea-field textarea');
+
+window.onload = saveHistory(textarea);
+
+function saveHistory(elem) {
+  var key = elem.tagName.toLowerCase();
+  if (sessionStorage[key]) {
+    showButton(key, elem);
+    elem.value = JSON.parse(sessionStorage[key]).pop();
+  }
+  elem.addEventListener('input', setHistory(key, elem)); 
+}
+
+function setHistory(key, elem) {
+  var arr = [];
+  return function() {
+    arr.push(elem.value);
+    sessionStorage.setItem(key, JSON.stringify(arr));
+    showButton(key, elem);
+    //console.log(JSON.parse(sessionStorage[key]));
+  };
+}
+
+function showButton(key, elem) {
+  var buttonPrev = elem.parentElement.querySelector('#prev');
+  var buttonNext = elem.parentElement.querySelector('#next');
+  addActiveClass(buttonPrev, buttonNext);
+  buttonPrev.onclick = prevValue(key, elem);
+  buttonNext.onclick = nextValue(key, elem);
+}
+
+function nextValue(key, elem) {
+  return function() {
+    var arrValue = JSON.parse(-[key]);
+    var index = arrValue.indexOf(elem.value);
+    if (index < arrValue.length - 1) elem.value = arrValue[++index];
+  };
+}
+
+function prevValue(key, elem) {
+  return function() {
+  var arrValue = JSON.parse(sessionStorage[key]);
+  arrValue.forEach( function(value, i) { 
+    if (value === elem.value && i > 0) elem.value = arrValue[--i];
+    });
+  };
+}
+
+function addActiveClass() {
+  for (let i = 0; i < arguments.length; i++) {
+    if (!arguments[i].classList.contains('active')) arguments[i].classList.add('active');
+  }
+}
+	  </script>
+  </body>
+</html>
